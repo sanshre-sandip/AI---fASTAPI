@@ -1,47 +1,34 @@
-<<<<<<< HEAD
 from fastapi import FastAPI, HTTPException, Path, Query
-=======
-from fastapi import FastAPI
->>>>>>> 49dac57
 import json
 
 app = FastAPI()
 
+
 @app.get("/")
 def letsgoo():
-    return {'message':'FAstapi for ml'}
+    return {'message': 'FastAPI for ml'}
 
 
 @app.get("/data")
 def show():
-    with open('data.json','r') as f:
+    with open('data.json', 'r') as f:
         data = json.load(f)
-    
     return data
 
-<<<<<<< HEAD
-#path parameter
-@app.get('/path/{id}')
-def path_pram(id: str = Path(..., description='id no for client accoding to stored in dataset', examples='1')):
-=======
 
+# Path parameter
 @app.get('/path/{id}')
-def path_pram(id: str):
->>>>>>> 49dac57
-    with open('data.json','r') as f:
+def path_pram(id: str = Path(..., description='id no for client according to dataset', examples='1')):
+    with open('data.json', 'r') as f:
         data = json.load(f)
 
         if id in data:
             return data[id]
-<<<<<<< HEAD
-        
+
         raise HTTPException(status_code=404, detail='not found')
 
 
-
-#Query parameter
-from fastapi import FastAPI, Query, HTTPException
-
+# Query parameter
 @app.get('/sort')
 def sort(
     sort_by: str = Query(..., description='Sort by height, weight, or bmi'),
@@ -73,16 +60,3 @@ def sort(
     )
 
     return sorted_data
-=======
-        return {'error':'data not found'}
-
-
-
-
-   
-
-      
-
-
-
->>>>>>> 49dac57
