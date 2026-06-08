@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from fastapi import FastAPI, HTTPException, Path, Query
+=======
+from fastapi import FastAPI
+>>>>>>> 49dac57
 import json
 
 app = FastAPI()
@@ -15,14 +19,21 @@ def show():
     
     return data
 
+<<<<<<< HEAD
 #path parameter
 @app.get('/path/{id}')
 def path_pram(id: str = Path(..., description='id no for client accoding to stored in dataset', examples='1')):
+=======
+
+@app.get('/path/{id}')
+def path_pram(id: str):
+>>>>>>> 49dac57
     with open('data.json','r') as f:
         data = json.load(f)
 
         if id in data:
             return data[id]
+<<<<<<< HEAD
         
         raise HTTPException(status_code=404, detail='not found')
 
@@ -62,3 +73,16 @@ def sort(
     )
 
     return sorted_data
+=======
+        return {'error':'data not found'}
+
+
+
+
+   
+
+      
+
+
+
+>>>>>>> 49dac57
