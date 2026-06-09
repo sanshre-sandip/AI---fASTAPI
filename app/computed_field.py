@@ -1,5 +1,6 @@
 from pydantic import BaseModel, AnyUrl, EmailStr, Field, model_validator, computed_field
 from typing import Dict, Optional
+import os
 
 
 class Variables(BaseModel):
