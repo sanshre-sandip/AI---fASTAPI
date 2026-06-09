@@ -1,7 +1,8 @@
 from pydantic import BaseModel, EmailStr, AnyUrl, Field                             
 
-#pydantic provides the custom datatype like EmailStr AnyUrl
-from typing import List,TypedDict, Optional, Dict
+#pydantic provides the custom datatype like EmailStr AnyUrl Field
+# we can add metadat using Field in any field using ----->  Annotated
+from typing import List,TypedDict, Optional, Dict, Annotated
 class Student(BaseModel):
     name: str
     age: int = Field(gt=0)
